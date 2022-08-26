@@ -43,4 +43,10 @@
 
 - How do we run this test?-> We got a script for running the development server -> for example npm test
 
+### Writing Test - The Three "A"s
 
+**Arrange:** Set up the test data, test conditions and test environment.
+
+**Act:** Run logic that should be tested (e.g execute func.)
+
+**Assert:** Compare executaion results with expected results.
