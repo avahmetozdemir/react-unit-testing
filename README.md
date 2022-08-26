@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# React Unit Testing 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Testing
 
-## Available Scripts
+### Manual Testing 
 
-In the project directory, you can run:
+- Write Code <>Preview & Test in Browser
+- Very important because we see what users will see
+- But testing manually is error-prone : Its hard to test all possible combinations and scenarios
 
-### `npm start`
+### Automated Testing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- This is not replacemnet for manual testing, its is always super important. It is an addition. 
+- Code that test your code : With automated testing we write extra code that runs and test your other, your main application code 
+- You can always test everything no matter what you changed 
+- It does not cost you a lot of time 
+- You test the individual building blocks of your app
+- Very technical but allows you to test all building blocks at once
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Different kind of automated Tests
 
-### `npm test`
+- **Unit Tests :** Test the individual blocks(component, functions) in isolation. Projects typically contain dozens or hundredsof unit tests.The most common and important test. The idea is simply is that if you test all the individuals units on themselves the overall application will also work
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Integration Tests:** If we put together all those units, we have integration test. Test the combination of multiple building blocks for example multiple components work together. Projects typically contain couple of integration  tests. Also important but we focus on unit tests in most cases
 
-### `npm run build`
+- **End to End Tests:** Its all about testing entire workflows in your application. Test complete scenarios in your app as the user would expreince them. Important but can also be done manually.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**What To Test ?** Test the different building blocks. Unit tests: The smallest building blocks that make up your app. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**How To Test ?** Test success and error cases, also test rare (but possible) results
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Where do we write this code and how do we execute this testing code?
 
-### `npm run eject`
+- For this we need some extra tools and an extra setup. We need a tool for running our tests and asserting the results.-> We typically use JEST. 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- We also need a tool for "simulating"(rendering) our React app/components for those automated tests to then interact with them. -> We typically use React Testing Library. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+	**!!! Both tools(Jest and React Testing Library) are already set up for you when using CRA(create-react-app)**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Our test file just like our component file with the word 'test' in the file name.-> App.test.js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- In that App.test.js file we have test function which takes two arguments. The first argument is  a description of the test and this is up to us, the second argument is a function which contains the actual test and code.
 
-## Learn More
+- How do we run this test?-> We got a script for running the development server -> for example npm test
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
